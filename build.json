@@ -1,0 +1,10 @@
+{
+	"id": "highlight_php_code",
+	"version": "0.8",
+	"description": "Highlight PHP Code",
+	"categories": [
+		"code",
+		"highlighting"
+	],
+	"compatible_from": "2017.3.12"
+}

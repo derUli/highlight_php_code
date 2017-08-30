@@ -1,0 +1,25 @@
+{
+	"source": "extend",
+	"version": "0.8",
+	"embed": false,
+	"controllers": {
+		"HighlightPHPCode": "HighlightPHPCode.php"
+	},
+	"objects": {
+		"PHPCode": "objects/PHPCode.php"
+	},
+	"custom_acl": [
+		"highlight_php_code"
+	],
+	"admin_permission": "highlight_php_code",
+	"main_class": "HighlightPHPCode",
+	"controller_function_permissions": {
+		"HighlightPHPCode::deleteCode": "highlight_php_code",
+		"HighlightPHPCode::createCode": "highlight_php_code",
+		"HighlightPHPCode::editCode": "highlight_php_code"
+	},
+	"actions": {
+		"code_new": "templates/new.php",
+		"code_edit": "templates/edit.php"
+	}
+}
