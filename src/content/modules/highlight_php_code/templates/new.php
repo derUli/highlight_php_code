@@ -10,12 +10,13 @@ if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permissio
 <!--  @FIXME: CodeMirror verwenden -->
 <p>
 	<strong><?php translate("code")?></strong><br />
-	<textarea cols="80" rows="8" name="code" required></textarea>
+	<textarea id="code" cols="80" rows="8" name="code"></textarea>
 </p>
 <button type="submit" class="btn btn-success"><?php translate("save");?></button>
 </form>
+<script type="text/javascript"
+	src="<?php Template::escape(ModuleHelper::buildModuleRessourcePath("highlight_php_code", "js/backend.js"));?>"></script>
 <?php
-
 } else {
 	noperms ();
 }
