@@ -26,15 +26,22 @@
 					src="gfx/edit.png" alt="<?php translate("edit");?>"></a></td>
 			<td class="text-center">
 				<!--  @FIXME: Sicherheitsabfrage beim Löschen einbauen -->
-				<?php
+				<div class="delete-form-container"><?php
 		
 		echo ModuleHelper::buildMethodCallForm ( "HighlightPHPCode", "deleteCode" );
 		?> <input type="hidden" name="id"
 				value="<?php Template::escape($ds->getId())?>"> <input type="image"
 				alt="<?php translate("delete")?>" src="gfx/delete.gif">
-				</form>
+				</form></div>
 			</td>
 		</tr>
 		<?php }?>
 	</tbody>
 </table>
+<?php
+$translation = new JSTranslation ();
+$translation->addKey ( "ask_for_delete" );
+$translation->renderJS ();
+?>
+<script type="text/javascript"
+	src="<?php Template::escape(ModuleHelper::buildModuleRessourcePath("highlight_php_code", "js/backend.js"));?>"></script>
