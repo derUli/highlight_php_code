@@ -15,6 +15,6 @@ $(function() {
 		});
 	}
 	$(".delete-form-container form").submit(function() {
-		return confirm(Translation.ASK_FOR_DELETE);
+		return confirm(Translation.AskForDelete);
 	});
 });
