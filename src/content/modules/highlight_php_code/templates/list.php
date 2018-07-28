@@ -1,7 +1,25 @@
-<p>
-	<a href="<?php echo ModuleHelper::buildActionURL("code_new");?>"
-		class="btn btn-default"><?php translate("new");?></a>
-</p>
+<?php
+$acl = new ACL ();
+?>
+<div class="row">
+	<div class="col-xs-6">
+		<p>
+			<a href="<?php echo ModuleHelper::buildActionURL("code_new");?>"
+				class="btn btn-default"><?php translate("new");?></a>
+		</p>
+	</div>
+	<div class="col-xs-6 text-right">
+	<?php
+	if ($acl->hasPermission ( "highlight_php_code_settings" )) {
+		?>
+
+		<p>
+			<a href="<?php echo ModuleHelper::buildActionURL("code_settings");?>"
+				class="btn btn-default"><?php translate("settings");?></a>
+		</p>
+		<?php }?>
+	</div>
+</div>
 <table class="tablesorter">
 	<thead>
 		<tr>
@@ -30,14 +48,16 @@
 		
 		echo ModuleHelper::buildMethodCallForm ( "HighlightPHPCode", "deleteCode" );
 		?> <input type="hidden" name="id"
-				value="<?php Template::escape($ds->getId())?>"> <input type="image"
-				alt="<?php translate("delete")?>" src="gfx/delete.gif">
-				</form></div>
+						value="<?php Template::escape($ds->getId())?>"> <input
+						type="image" alt="<?php translate("delete")?>"
+						src="gfx/delete.gif">
+				</div>
 			</td>
 		</tr>
 		<?php }?>
 	</tbody>
 </table>
+</form>
 <?php
 $translation = new JSTranslation ();
 $translation->addKey ( "ask_for_delete" );

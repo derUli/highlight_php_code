@@ -1,11 +1,22 @@
 <?php
+
+$controller = ControllerRegistry::get ( "HighlightPHPCode" );
+
 $acl = new ACL ();
 if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permission" ) ) and Request::hasVar ( "id" )) {
+	?>
+<p>
+	<a
+		href="<?php echo ModuleHelper::buildAdminURL($controller->moduleName);?>"
+		class="btn btn-default btn-back"><?php translate("back")?></a>
+</p>
+<?php
 	$id = Request::getVar ( "id", null, int );
 	if ($id) {
 		$data = new PHPCode ( $id );
 		if ($data->getID ()) {
 			?>
+			
 <?php echo ModuleHelper::buildMethodCallForm("HighlightPHPCode", "editCode", array("id" => $data->getID()));?>
 <p>
 	<strong><?php translate("name")?></strong><br /> <input type="text"

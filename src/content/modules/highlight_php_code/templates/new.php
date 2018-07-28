@@ -1,7 +1,15 @@
 <?php
+
+$controller = ControllerRegistry::get ( "HighlightPHPCode" );
+
 $acl = new ACL ();
 if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permission" ) )) {
 	?>
+<p>
+	<a
+		href="<?php echo ModuleHelper::buildAdminURL($controller->moduleName);?>"
+		class="btn btn-default btn-back"><?php translate("back")?></a>
+</p>
 <?php echo ModuleHelper::buildMethodCallForm("HighlightPHPCode", "createCode");?>
 <p>
 	<strong><?php translate("name")?></strong><br /> <input type="text"
