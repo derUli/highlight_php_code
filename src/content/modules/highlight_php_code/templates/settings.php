@@ -11,6 +11,8 @@ if ($acl->hasPermission ( "highlight_php_code_settings" )) {
 		class="btn btn-default btn-back"><?php translate("back")?></a>
 </p>
 <?php echo ModuleHelper::buildMethodCallForm("HighlightPHPCode", "saveSettings");?>
+<h2><?php translate("colors");?></h2>
+<p><?php translate("HIGHLIGHT_PHP_CODE_COLOR_HELP");?></p>
 <?php
 
 	foreach ( $properties as $property ) {
