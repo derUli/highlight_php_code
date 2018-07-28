@@ -4,6 +4,7 @@ $properties = $controller->getColorProperties ();
 $acl = new ACL ();
 if ($acl->hasPermission ( "highlight_php_code_settings" )) {
 	?>
+	<h1><?php translate("settings");?></h1>
 <p>
 	<a
 		href="<?php echo ModuleHelper::buildAdminURL($controller->moduleName);?>"
