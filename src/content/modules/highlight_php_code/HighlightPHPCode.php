@@ -11,6 +11,21 @@ class HighlightPHPCode extends Controller {
 		ViewBag::set ( "datasets", PHPCode::getAll () );
 		return Template::executeModuleTemplate ( $this->moduleName, "list.php" );
 	}
+	public function afterInit() {
+		$properties = array (
+				"highlight.comment",
+				"highlight.default",
+				"highlight.html",
+				"highlight.keyword",
+				"highlight.string" 
+		);
+		foreach($properties as $property){
+			$color = Settings::get(str_replace(".", "/", $property));
+			if(is_string($color)){
+				ini_set($property, $color);
+			}
+		}
+	}
 	public function contentFilter($html) {
 		preg_match_all ( "/\[code id=([0-9]+)]/i", $html, $match );
 		if (count ( $match ) > 0) {
