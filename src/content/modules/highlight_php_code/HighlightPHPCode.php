@@ -8,12 +8,14 @@ class HighlightPHPCode extends Controller {
 		return "Highlight PHP Code";
 	}
 	public function settings() {
+		// List of Code Snippets
 		ViewBag::set ( "datasets", PHPCode::getAll () );
 		return Template::executeModuleTemplate ( $this->moduleName, "list.php" );
 	}
 	public function saveSettingsPost() {
 		$properties = $this->getColorProperties ();
 		
+		// Save color settings
 		foreach ( $properties as $property ) {
 			$settingName = str_replace ( ".", "/", $property );
 			$paramName = str_replace ( ".", "_", $property );
@@ -24,8 +26,10 @@ class HighlightPHPCode extends Controller {
 				Settings::delete ( $settingName );
 			}
 		}
+		// Redirect to Code List
 		Response::redirect ( ModuleHelper::buildAdminURL ( $this->moduleName ) );
 	}
+	// The names of php.ini settings for code highlighting
 	public function getColorProperties() {
 		return array (
 				"highlight.comment",
@@ -37,7 +41,7 @@ class HighlightPHPCode extends Controller {
 	}
 	public function afterInit() {
 		$properties = $this->getColorProperties ();
-		
+		// Set colors for syntax highlighting
 		foreach ( $properties as $property ) {
 			$color = Settings::get ( str_replace ( ".", "/", $property ) );
 			if (is_string ( $color )) {
@@ -46,6 +50,7 @@ class HighlightPHPCode extends Controller {
 		}
 	}
 	public function contentFilter($html) {
+		// replace [code id=123] placeholders with highlighted code++++
 		preg_match_all ( "/\[code id=([0-9]+)]/i", $html, $match );
 		if (count ( $match ) > 0) {
 			for($i = 0; $i < count ( $match [0] ); $i ++) {
@@ -88,6 +93,7 @@ class HighlightPHPCode extends Controller {
 		}
 		Request::redirect ( ModuleHelper::buildAdminURL ( $this->moduleName ) );
 	}
+	// remove codes on uninstall
 	public function uninstall() {
 		$migrator = new DBMigrator ( "module/" . $this->moduleName, ModuleHelper::buildModuleRessourcePath ( $this->moduleName, "sql/down" ) );
 		$migrator->rollback ();

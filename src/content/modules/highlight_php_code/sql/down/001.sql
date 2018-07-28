@@ -1,1 +1,1 @@
- DROP TABLE `{prefix}php_code`; 
+DROP TABLE `{prefix}php_code`; 

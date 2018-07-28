@@ -1,4 +1,5 @@
 $(function() {
+	// Setup CodeMirror Editor for "Code" TextArea
 	if (document.getElementById("code")) {
 		var phpCodeMirror = CodeMirror.fromTextArea(document
 				.getElementById("code"),
@@ -14,6 +15,7 @@ $(function() {
 			lineWrapping : true
 		});
 	}
+	// Delete Code Action - Confirmation
 	$(".delete-form-container form").submit(function() {
 		return confirm(Translation.AskForDelete);
 	});
