@@ -5,7 +5,7 @@ $acl = new ACL ();
 	<div class="col-xs-6">
 		<p>
 			<a href="<?php echo ModuleHelper::buildActionURL("code_new");?>"
-				class="btn btn-default"><?php translate("new");?></a>
+				class="btn btn-default"><i class="fa fa-plus"></i> <?php translate("new");?></a>
 		</p>
 	</div>
 	<div class="col-xs-6 text-right">
@@ -15,7 +15,7 @@ $acl = new ACL ();
 
 		<p>
 			<a href="<?php echo ModuleHelper::buildActionURL("code_settings");?>"
-				class="btn btn-default"><?php translate("settings");?></a>
+				class="btn btn-default"><i class="fas fa-wrench"></i> <?php translate("settings");?></a>
 		</p>
 		<?php }?>
 	</div>
@@ -51,6 +51,7 @@ $acl = new ACL ();
 						value="<?php Template::escape($ds->getId())?>"> <input
 						type="image" alt="<?php translate("delete")?>"
 						src="gfx/delete.gif">
+				<?php echo ModuleHelper::endForm();?>
 				</div>
 			</td>
 		</tr>

@@ -8,7 +8,7 @@ if ($acl->hasPermission ( "highlight_php_code_settings" )) {
 <p>
 	<a
 		href="<?php echo ModuleHelper::buildAdminURL($controller->moduleName);?>"
-		class="btn btn-default btn-back"><?php translate("back")?></a>
+		class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> <?php translate("back")?></a>
 </p>
 <?php echo ModuleHelper::buildMethodCallForm("HighlightPHPCode", "saveSettings");?>
 <h2><?php translate("colors");?></h2>
@@ -28,7 +28,7 @@ if ($acl->hasPermission ( "highlight_php_code_settings" )) {
 </p>
 <?php } ?>
 <p>
-	<button type="submit" class="btn btn-primary"><?php translate("save");?></button>
+	<button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> <?php translate("save");?></button>
 </p>
 <?php
 	
