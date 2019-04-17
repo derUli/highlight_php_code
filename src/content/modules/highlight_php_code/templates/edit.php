@@ -35,6 +35,10 @@ if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permissio
 <?php
 		}
 	}
+	
+	BackendHelper::enqueueEditorScripts();
+	combinedScriptHtml();
+
 } else {
 	noperms ();
 }

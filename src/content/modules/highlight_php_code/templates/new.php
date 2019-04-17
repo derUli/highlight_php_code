@@ -25,6 +25,10 @@ if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permissio
 <script type="text/javascript"
 	src="<?php Template::escape(ModuleHelper::buildModuleRessourcePath("highlight_php_code", "js/backend.js"));?>"></script>
 <?php
+
+BackendHelper::enqueueEditorScripts();
+combinedScriptHtml();
+
 } else {
 	noperms ();
 }
