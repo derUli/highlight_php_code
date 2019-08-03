@@ -11,7 +11,7 @@ if ($acl->hasPermission ( getModuleMeta ( "highlight_php_code", "admin_permissio
 		class="btn btn-default btn-back"><i class="fa fa-arrow-left"></i> <?php translate("back")?></a>
 </p>
 <?php
-	$id = Request::getVar ( "id", null, int );
+	$id = Request::getVar ( "id", null, "int" );
 	if ($id) {
 		$data = new PHPCode ( $id );
 		if ($data->getID ()) {
