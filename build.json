@@ -1,10 +1,10 @@
 {
 	"id": "highlight_php_code",
-	"version": "1.4",
+	"version": "1.5",
 	"description": "Highlight PHP Code",
 	"categories": [
 		"code",
 		"highlighting"
 	],
-	"compatible_from": "2019.2.6"
+	"compatible_from": "2020.4"
 }
